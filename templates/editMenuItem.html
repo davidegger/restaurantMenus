@@ -1,0 +1,23 @@
+<html>
+<body>
+  <h1> Edit Menu Item </h1>
+
+  <form action = "{{ url_for('editMenuItem', restaurant_id=restaurant_id, menu_id = menu_id) }}"
+    method = 'POST'>
+     Name:<input type = 'text' size = '30' name='name' value = '{{ menuItemName }}'><br />
+     Price: <input type = 'text' size = '30' name='price' value = '{{ menuItemPrice }}'><br />
+     Description: <input type = 'text' size = '100' name='description' value = '{{ menuItemDescription }}'><br />
+     Course: <select name = 'course'>
+                <option value = "Appetizer" {% if menuItemCourse == "Appetizer" %} selected {% endif %} >Appetizer</option>
+                <option value = "Entree" {% if menuItemCourse == "Entree" %} selected {% endif %}>Entree</option>
+                <option value = "Dessert"{% if menuItemCourse == "Dessert" %} selected {% endif %}>Dessert</option>
+                <option value = "Soup"{% if menuItemCourse == "Soup" %} selected {% endif %}>Soup</option>
+                <option value = "Salad"{% if menuItemCourse == "Salad" %} selected {% endif %}>Salad</option>
+                <option value = "Beverages"{% if menuItemCourse == "Beverages" %} selected {% endif %}>Beverages</option>
+                <option value = "Amuse Bouche"{% if menuItemCourse == "Amuse Bouche" %} selected {% endif %}>Amuse Bouche</option>
+              </select><br /><br />
+      <input type = 'submit' value='Update Menu Item'><br /><br />
+      <a href = "{{url_for('restaurantMenu', restaurant_id=restaurant_id) }}">Cancel</a>
+  </form>
+</body>
+</html>
